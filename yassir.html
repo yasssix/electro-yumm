@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electro Yum - Boutique Électronique</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #0d47a1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 2.5em; }
+        nav { margin-top: 10px; }
+        nav a {
+            color: white; text-decoration: none; margin: 0 15px; font-weight: bold;
+        }
+        nav a:hover { text-decoration: underline; }
+        .banner {
+            background-color: #1976d2;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 1.5em;
+        }
+        .products {
+            display: flex; justify-content: center; flex-wrap: wrap;
+            padding: 40px 20px;
+        }
+        .product-card {
+            background-color: white; border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 20px; padding: 20px; width: 250px; text-align: center;
+        }
+        .product-card img {
+            width: 200px; height: auto; margin-bottom: 15px;
+        }
+        .product-card h3 { margin: 10px 0; font-size: 1.2em; }
+        .product-card p { font-size: 1em; color: #555; }
+        .product-card button {
+            margin-top: 15px; padding: 10px 20px;
+            background-color: #0d47a1; color: white; border: none;
+            border-radius: 5px; cursor: pointer; font-weight: bold;
+        }
+        .product-card button:hover { background-color: #1565c0; }
+        .contact {
+            background-color: #e3f2fd; padding: 40px 20px; text-align: center;
+        }
+        .contact a {
+            color: #0d47a1; text-decoration: underline; font-weight: bold;
+        }
+        footer {
+            background-color: #0d47a1; color: white;
+            text-align: center; padding: 20px; margin-top: 40px;
+        }
+        footer a { color: white; text-decoration: underline; }
+
+        /* Formulaire de commande */
+        .commande-container {
+            display: none; max-width: 500px; margin: 50px auto;
+            background: white; padding: 30px; border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .commande-container label { display: block; margin-top: 15px; font-weight: bold; }
+        .commande-container input,
+        .commande-container textarea { width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc; }
+        .commande-container button { margin-top: 20px; padding: 12px; background-color: #0d47a1; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        .commande-container button:hover { background-color: #1565c0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Electro Yum</h1>
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#boutique">Boutique</a>
+        <a href="#contact">Contact / Livraison</a>
+    </nav>
+</header>
+
+<section class="banner" id="accueil">
+    Votre boutique d'électronique au Maroc – Qualité & Prix abordables !
+</section>
+
+<section class="products" id="boutique">
+    <!-- Power Bank Anker -->
+    <div class="product-card">
+        <img src="https://electrobrothers.com/wp-content/uploads/2025/07/61vj2BPDpuL._AC_SX679_-300x300.jpg" alt="Power Bank Anker 26800mAh">
+        <h3>Power Bank Anker 26800mAh</h3>
+        <p>Prix : 370 DH</p>
+        <button onclick="ouvrirCommande('Power Bank Anker 26800mAh', 370)">Acheter</button>
+    </div>
+
+    <!-- Écouteur Air Fly L1 -->
+    <div class="product-card">
+        <img src="https://electrobrothers.com/wp-content/uploads/2025/08/pdt2_5_9_3_1_700x700_AAAQY57593-600x600.jpg" alt="Écouteur Air Fly L1">
+        <h3>Écouteur sans fil Air Fly L1</h3>
+        <p>Prix : 159 DH</p>
+        <button onclick="ouvrirCommande('Écouteur Air Fly L1', 159)">Acheter</button>
+    </div>
+</section>
+
+<!-- Formulaire de commande intégré -->
+<div class="commande-container" id="commandeFormulaire">
+    <h2>Passer votre commande</h2>
+    <form id="commandeForm">
+        <label>Nom complet :</label>
+        <input type="text" id="nom" required>
+
+        <label>Adresse :</label>
+        <textarea id="adresse" required></textarea>
+
+        <label>Produit :</label>
+        <input type="text" id="produit" readonly>
+
+        <label>Prix :</label>
+        <input type="text" id="prix" readonly>
+
+        <label>Quantité :</label>
+        <input type="number" id="quantite" value="1" min="1" required>
+
+        <button type="submit">Envoyer la commande</button>
+    </form>
+</div>
+
+<section class="contact" id="contact">
+    <h2>Contact & Livraison</h2>
+    <p>📦 Livraison rapide dans tout le Maroc</p>
+    <p>💳 Paiement à la livraison disponible</p>
+    <p>📱 Pour passer commande ou plus d’infos :</p>
+    <p>
+        <a href="https://wa.me/212656960354" target="_blank">WhatsApp : 0656960354</a> | 
+        <a href="https://www.instagram.com/ton_instagram" target="_blank">Instagram</a>
+    </p>
+</section>
+
+<footer>
+    <p>Electro Yum © 2025</p>
+</footer>
+
+<script>
+// Afficher le formulaire et remplir produit/prix
+function ouvrirCommande(produit, prix){
+    document.getElementById('commandeFormulaire').style.display = 'block';
+    document.getElementById('produit').value = produit;
+    document.getElementById('prix').value = prix;
+    window.scrollTo(0, document.getElementById('commandeFormulaire').offsetTop);
+}
+
+// Envoi sur WhatsApp
+document.getElementById('commandeForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nom = document.getElementById('nom').value;
+    const adresse = document.getElementById('adresse').value;
+    const produit = document.getElementById('produit').value;
+    const prix = document.getElementById('prix').value;
+    const quantite = document.getElementById('quantite').value;
+
+    const message = `Bonjour, je souhaite commander :\nProduit : ${produit}\nPrix : ${prix} DH\nQuantité : ${quantite}\nNom : ${nom}\nAdresse : ${adresse}`;
+    const encodedMessage = encodeURIComponent(message);
+    const numero = "212656960354"; // Ton numéro WhatsApp
+    window.open(`https://wa.me/${numero}?text=${encodedMessage}`, "_blank");
+});
+</script>
+
+</body>
+</html>
